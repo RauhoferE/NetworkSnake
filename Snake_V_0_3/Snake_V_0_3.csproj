@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67B48BDB-57B0-4647-8D52-D21F329C0ED4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Snake_V_0_3</RootNamespace>
+    <AssemblyName>Snake_V_0_3</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Apple.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="EventArgs\CollisionEventArgs.cs" />
+    <Compile Include="CollisionManager.cs" />
+    <Compile Include="Color.cs" />
+    <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="Directions\DirectionDown.cs" />
+    <Compile Include="EventArgs\DirectionEventArgs.cs" />
+    <Compile Include="Directions\DirectionLeft.cs" />
+    <Compile Include="Directions\DirectionRight.cs" />
+    <Compile Include="Directions\DirectionUp.cs" />
+    <Compile Include="EventArgs\FieldEventArgs.cs" />
+    <Compile Include="EventArgs\GameOBjectListEventArgs.cs" />
+    <Compile Include="GameObjects.cs" />
+    <Compile Include="Icon.cs" />
+    <Compile Include="Interface\IDirection.cs" />
+    <Compile Include="ObjectContainer.cs" />
+    <Compile Include="ObjectCreationThread.cs" />
+    <Compile Include="ObjectPlacementChecker.cs" />
+    <Compile Include="PlayingField.cs" />
+    <Compile Include="Position.cs" />
+    <Compile Include="PowerUpHelper.cs" />
+    <Compile Include="PowerupManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rainbow.cs" />
+    <Compile Include="ScoreBoard.cs" />
+    <Compile Include="EventArgs\ScoreEventArgs.cs" />
+    <Compile Include="SegmentDestroyer.cs" />
+    <Compile Include="EventArgs\SnakeEventArgs.cs" />
+    <Compile Include="SnakeMover.cs" />
+    <Compile Include="SnakeSegment.cs" />
+    <Compile Include="StaticGameObjectFactory.cs" />
+    <Compile Include="EventArgs\StaticObjectEventArgs.cs" />
+    <Compile Include="StaticObjects.cs" />
+    <Compile Include="EventArgs\StringEventArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram2.cd" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

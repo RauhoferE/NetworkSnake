@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SnakeClientConsole.Program">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeClientConsole.ConsoleRenderer">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAgAAAgAACAAAAAAAAAAAAAABAQBCAAAAAAAAAAAA=</HashCode>
+      <FileName>ConsoleRenderer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SnakeClientConsole.KeyBoardWatcher">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACQAAAEAAAAAAAAAAAACAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>KeyBoardWatcher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SnakeClientConsole.App">
+    <Position X="2.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgACABAAAAAAAAAAQAQAAAAAABICAAQIAAgEg=</HashCode>
+      <FileName>App.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeClientConsole.InputValidator">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>InputValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeClientConsole.WindowWatcher">
+    <Position X="4.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAACAAAAEAAgAAQAAAAAAAAAAAIAAAAAAAAIA=</HashCode>
+      <FileName>WindowWatcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeClientConsole.ConsoleKeyEventArgs">
+    <Position X="9" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>ConsoleKeyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeClientConsole.InputValidatorForIPInput">
+    <Position X="7" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgAAAAAAEAKQBAAAAAAAAQAAAAAAAAEAoAAAAAAAAA=</HashCode>
+      <FileName>InputValidatorForIPInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeClientConsole.IpAdressCreator">
+    <Position X="9" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAAAAAAAEAQQAAAAAAAAAAAAAAAAAAEAAAAAAAgAAA=</HashCode>
+      <FileName>IpAdressCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeClientConsole.CharEventArgs">
+    <Position X="11.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>CharEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SnakeClientConsole.IRenderer">
+    <Position X="14.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAgAAAgAACAAAAAAAAAAAAAABAQBCAAAAAAAAAAAA=</HashCode>
+      <FileName>IRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SnakeClientConsole.IInputWatcher">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAAAAAAAAAAAAAAAACAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>IInputWatcher.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

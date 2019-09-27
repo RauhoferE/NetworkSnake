@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SnakeServer.Program">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeServer.ConsoleRenderer">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAAAAAAAAAAIAEQAAAAAQAAAAAAABAAAAAA=</HashCode>
+      <FileName>ConsoleRenderer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SnakeServer.MovementManager">
+    <Position X="6.5" Y="4.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAABAAACAAIAFREAAAAAAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <FileName>MovementManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeServer.MessageEventArgs">
+    <Position X="14.25" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>MessageEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeServer.WindowWatcher">
+    <Position X="12" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAACAAAAEAAgAAQAAAAAAAAAAAIAAAAAAAAIA=</HashCode>
+      <FileName>WindowWatcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeServer.Application">
+    <Position X="3.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEgEgAACAAAAAAgEAAEAQAAAAAAAAAIQCABAiAgAA=</HashCode>
+      <FileName>Application.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SnakeServer.IRenderer">
+    <Position X="7.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAAAAAAAAAAIAEQAAAAAQAAAAAAABAAAAAA=</HashCode>
+      <FileName>IRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="NetworkLibrary.MessageTypePrintField">
+    <Position X="0.5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageTypes\MessageTypePrintField.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MessageTypePrintObject">
+    <Position X="3" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageTypes\MessageTypePrintObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MoveSnakeUp">
+    <Position X="9.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SnakeMovement\MoveSnakeUp.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MoveSnakeDown">
+    <Position X="10.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SnakeMovement\MoveSnakeDown.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MoveSnakeLeft">
+    <Position X="13.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SnakeMovement\MoveSnakeLeft.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MoveSnakeRight">
+    <Position X="12.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SnakeMovement\MoveSnakeRight.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MessageTypePing">
+    <Position X="0.5" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageTypes\MessageTypePing.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MessageTypeMoveSnake">
+    <Position X="3" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageTypes\MessageTypeMoveSnake.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MessageBuilder">
+    <Position X="9" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AOAAAEQAAAAAAAAAABAQBAiAQACAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>MessageBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.NetworkSerealizer">
+    <Position X="3" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAEAAAAAAAAFAAgAACAAAICAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NetworkSerealizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.NetworkDeSerealizer">
+    <Position X="1" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAgAABAAAAAAAAIAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NetworkDeSerealizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.ServerHost">
+    <Position X="1.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAHAAAAEAACkAQgBwBIAGAAAAIAgAIAAQAAA=</HashCode>
+      <FileName>Host.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="clients" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NetworkLibrary.MessageTypePrintString">
+    <Position X="5.25" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageTypes\MessageTypePrintString.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MessageTypePrintErrorMessage">
+    <Position X="5.5" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageTypes\MessageTypePrintErrorMessage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.MessageContainer">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACA=</HashCode>
+      <FileName>MessageContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.ObjectPrintContainer">
+    <Position X="23.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>ObjectPrintContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.FieldPrintContainer">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAABAAAAAQAQAAAAEAAAAAAAAAAQAAAAAAACAA=</HashCode>
+      <FileName>FieldPrintContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.MoveSnakeContainer">
+    <Position X="6.25" Y="7.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>MoveSnakeContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.MessageTypePrintInformation">
+    <Position X="0.5" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageTypes\MessageTypePrintInformation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLibrary.GameInformationContainer">
+    <Position X="13.5" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAgAAAAAAAAAAAEAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameInformationContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.Position">
+    <Position X="6.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAA=</HashCode>
+      <FileName>Position.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.ObjectListContainer">
+    <Position X="17" Y="5.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAABBAAAAAAAAAQAAAAEAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>ObjectListContainer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="oldItems" />
+      <Field Name="newItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NetworkLibrary.ByteMessageEventArgs">
+    <Position X="17" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>EventArgs\ByteMessageEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.ServerClient">
+    <Position X="5.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAggIADAAABEAASAAEBBQJABAAAAAqABAAACAAgA=</HashCode>
+      <FileName>Client.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="messageBuilder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NetworkLibrary.PlayerClient">
+    <Position X="11.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAABoIACBCAFUAACIAAAAAIFBgAAAAKBAAAJCEkgQ=</HashCode>
+      <FileName>PlayerClient.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="messageBuilder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NetworkLibrary.FieldMessageEventArgs">
+    <Position X="17.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\FieldMessageEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.MessageContainerEventArgs">
+    <Position X="19.25" Y="8.75" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\MessageContainerEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.ObjectPrintEventArgs">
+    <Position X="23.25" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\ObjectPrintEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.GameInfoEventArgs">
+    <Position X="26.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>GameInfoEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.SnakeMoveEventArgs">
+    <Position X="20.5" Y="10.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\SnakeMoveEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.ClientIDEventArgs">
+    <Position X="23.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\ClientIDEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.IPHelper">
+    <Position X="15" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.ClientSnakeMovementEventArgs">
+    <Position X="11.75" Y="8.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\ClientSnakeMovementEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLibrary.OtherKeyPressed">
+    <Position X="15.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OtherKeyPressed.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="NetworkLibrary.IMessageType">
+    <Position X="1.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMessageType.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetworkLibrary.IInputType">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IInputType.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
