@@ -23,14 +23,17 @@ namespace WPFClientSnake
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new PlayerVM();
+            MainVM main = new MainVM();
+            this.OnKeyPressed += main.RedirectInput;
+            this.DataContext = main;
         }
 
         public event EventHandler<KeyEventArgs> OnKeyPressed;
 
         private void UIElement_OnKeyUp(object sender, KeyEventArgs e)
         {
-            this.FireOnKeyPressed(e);
+            //TODO: Durch keyboardwatcehr ersetzten
+            Task.Factory.StartNew(() => this.FireOnKeyPressed(e));
         }
 
         protected virtual void FireOnKeyPressed(KeyEventArgs e)

@@ -71,9 +71,9 @@ namespace WPFClientSnake
                     throw new ArgumentException("Error please put in an IPAdress.");
                 }
 
-                this.ipadress = IPHelper.GetIPAdress(value);
-                this.FirePropertyChanged();
-            }
+                    this.ipadress = IPHelper.GetIPAdress(value);
+                    this.FirePropertyChanged();
+                }
         }
 
         public string Status
@@ -151,7 +151,9 @@ namespace WPFClientSnake
                     {
                         this.player.Stop();
                         this.player = null;
-                        this.ipadress = null;
+                        this.Status = string.Empty;
+                        this.IsConnected = false;
+                        this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
                         MessageBox.Show("Successfully Disconnected.");
                     }
                     catch (Exception e)
@@ -190,6 +192,7 @@ namespace WPFClientSnake
                     try
                     {
                         this.player.Start();
+                        this.IsConnected = true;
                         MessageBox.Show("Successufully connected.");
                     }
                     catch (Exception e)
@@ -204,10 +207,11 @@ namespace WPFClientSnake
         {
             try
             {
+                
                 this.player.Stop();
                 this.player = null;
-                this.ipadress = null;
-                this.status = string.Empty;
+                this.Status = string.Empty;
+                this.IsConnected = false;
                 this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
                 MessageBox.Show("Disconnected");
             }
@@ -244,11 +248,11 @@ namespace WPFClientSnake
                 {
                     if (i == 0 || i == e.FieldPrintContainer.Height - 1)
                     {
-                        temp.Add(new GameObject(new ObjectPrintContainer(e.FieldPrintContainer.Symbol, new Position(j, i), ConsoleColor.Black)));
+                        temp.Add(new GameObject(new ObjectPrintContainer(e.FieldPrintContainer.Symbol, new Position(j, i), ConsoleColor.White)));
                     }
                     else if (j == 0 || j == e.FieldPrintContainer.Width - 1)
                     {
-                        temp.Add(new GameObject(new ObjectPrintContainer(e.FieldPrintContainer.Symbol, new Position(j, i), ConsoleColor.Black)));
+                        temp.Add(new GameObject(new ObjectPrintContainer(e.FieldPrintContainer.Symbol, new Position(j, i), ConsoleColor.White)));
                     }
                     else
                     {
@@ -269,7 +273,7 @@ namespace WPFClientSnake
 
             foreach (var element in e.ObjectPrintContainer.OldItems)
             {
-                this.TextBoxList[element.PosInField.Y + 1][element.PosInField.X + 1].SetColor(ConsoleColor.White);
+                this.TextBoxList[element.PosInField.Y + 1][element.PosInField.X + 1].SetColor(ConsoleColor.Black);
                 this.TextBoxList[element.PosInField.Y + 1][element.PosInField.X + 1].SetCharacter(' ');
             }
 

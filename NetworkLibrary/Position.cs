@@ -25,10 +25,6 @@ namespace NetworkLibrary
             }
             private set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Error value cant be smaller than 0.");
-                }
 
                 this.x = value;
             }
@@ -42,10 +38,6 @@ namespace NetworkLibrary
             }
             private set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Error value cant be smaller than 0.");
-                }
 
                 this.y = value;
             }

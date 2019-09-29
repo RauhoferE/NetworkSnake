@@ -42,7 +42,7 @@ namespace Snake_V_0_3
         {
             lock (this.locker)
             {
-                this.Multiplicator = this.Multiplicator + 1;
+                this.Multiplicator++;
             }
         }
 

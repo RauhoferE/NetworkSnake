@@ -63,10 +63,13 @@ namespace SnakeServer
 
         private void PauseGame(object sender, EventArgs e)
         {
-            this.IsGamePaused = true;
-            this.taskFactory.StartNew(() => this.gameApplication.Pause(this, EventArgs.Empty));
-            this.taskFactory.StartNew(() => this.movementManager.ClearEntrys());
-            this.taskFactory.StartNew(() => this.movementManager.Stop());
+            if (!this.IsGameOver)
+            {
+                this.IsGamePaused = true;
+                this.taskFactory.StartNew(() => this.gameApplication.Pause(this, EventArgs.Empty));
+                this.taskFactory.StartNew(() => this.movementManager.ClearEntrys());
+                this.taskFactory.StartNew(() => this.movementManager.Stop());
+            }
         }
 
         private void GameOver(object sender, EventArgs e)
@@ -96,12 +99,6 @@ namespace SnakeServer
                 this.movementManager.Start();
                 this.gameApplication.Resume(this, EventArgs.Empty);
             }
-            //else if (!this.IsGamePaused && this.IsGameOver)
-            //{
-            //    this.IsGameOver = false;
-            //    this.movementManager.Start();
-            //    this.gameApplication.Start(this, EventArgs.Empty);
-            //}
         }
 
         private void RestartGame(object sender, EventArgs e)

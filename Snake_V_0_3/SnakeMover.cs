@@ -18,6 +18,8 @@ namespace Snake_V_0_3
 
         private System.Timers.Timer timer;
 
+        private bool recentlyMoved;
+
 
         public SnakeMover()
         {
@@ -33,11 +35,12 @@ namespace Snake_V_0_3
             this.CurrentDirection = new DirectionRight();
             this.timer = new System.Timers.Timer(10000);
             this.timer.Elapsed += this.MakeSnakeFaster;
+            this.recentlyMoved = false;
         }
 
         private void MakeSnakeFaster(object sender, ElapsedEventArgs e)
         {
-            if (this.speed < 400)
+            if (this.speed <= 400)
             {
                 return;
             }
@@ -137,6 +140,7 @@ namespace Snake_V_0_3
                     temp.Add(el.Clone());
                 }
 
+                this.recentlyMoved = true;
                 this.FireOnSnakeMoved(new SnakeEventArgs(temp));
 
                 Thread.Sleep(this.speed);
@@ -201,7 +205,11 @@ namespace Snake_V_0_3
                     return;
                 }
 
-                this.CurrentDirection = e.Direction;
+                if (this.recentlyMoved)
+                {
+                    this.recentlyMoved = false;
+                    this.CurrentDirection = e.Direction;
+                }
             }
         }
 
