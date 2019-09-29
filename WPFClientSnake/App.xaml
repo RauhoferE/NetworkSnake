@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:WPFClientSnake"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <local:BoolToColorConverter x:Key="boolConverter"></local:BoolToColorConverter>
     </Application.Resources>
 </Application>

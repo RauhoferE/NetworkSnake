@@ -17,22 +17,25 @@ namespace WPFClientSnake
 {
     using NetworkLibrary;
 
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = new PlayerVM();
-            var s = (PlayerVM)this.DataContext;
-            s.GetField(this, new FieldMessageEventArgs(new FieldPrintContainer(120, 30, '~')));
         }
+
+        public event EventHandler<KeyEventArgs> OnKeyPressed;
 
         private void UIElement_OnKeyUp(object sender, KeyEventArgs e)
         {
-            
+            this.FireOnKeyPressed(e);
+        }
+
+        protected virtual void FireOnKeyPressed(KeyEventArgs e)
+        {
+            OnKeyPressed?.Invoke(this, e);
         }
     }
 }

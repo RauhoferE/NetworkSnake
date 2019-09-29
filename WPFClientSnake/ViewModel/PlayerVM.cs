@@ -5,12 +5,14 @@ using System.Text;
 
 namespace WPFClientSnake
 {
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Net;
     using System.Runtime.CompilerServices;
     using System.Windows;
     using System.Windows.Input;
     using System.Windows.Media;
+    using System.Windows.Threading;
     using Commands;
     using NetworkLibrary;
 
@@ -18,18 +20,37 @@ namespace WPFClientSnake
     {
         private PlayerClient player;
         private IPEndPoint ipadress;
-        private List<List<char>> textBoxChars;
+        private ObservableCollection<ObservableCollection<GameObject>> textBoxChars;
         private string status;
-        private Color color;
+        private Brush color;
         private int snakeLength;
         private int points;
-        private string textBoxText;
+
+        /// <summary>
+        /// The current dispatcher.
+        /// </summary>
+        private readonly Dispatcher current;
+
+        private bool isConnected;
 
         public PlayerVM()
         {
+            this.current = App.Current.Dispatcher;
             this.Status = string.Empty;
-            this.MessageColor = Colors.White;
-            this.textBoxChars = new List<List<char>>();
+            this.MessageColor = Brushes.White;
+            this.textBoxChars = new ObservableCollection<ObservableCollection<GameObject>>();
+            this.IsConnected = false;
+
+        }
+
+        public ObservableCollection<ObservableCollection<GameObject>> TextBoxList
+        {
+            get { return this.textBoxChars; }
+            private set
+            {
+                this.textBoxChars = value; 
+                this.FirePropertyChanged();
+            }
         }
 
         public string IPAdress
@@ -45,7 +66,7 @@ namespace WPFClientSnake
             }
             set
             {
-                if (IPHelper.IsIPAdress(value))
+                if (!IPHelper.IsIPAdress(value))
                 {
                     throw new ArgumentException("Error please put in an IPAdress.");
                 }
@@ -68,7 +89,20 @@ namespace WPFClientSnake
             }
         }
 
-        public Color MessageColor
+        public bool IsConnected
+        {
+            get
+            {
+                return this.isConnected;
+            }
+            private set
+            {
+                this.isConnected = value;
+                this.FirePropertyChanged();
+            }
+        }
+
+        public Brush MessageColor
         {
             get
             {
@@ -101,16 +135,6 @@ namespace WPFClientSnake
             }
         }
 
-        public string TextBoxText
-        {
-            get { return this.textBoxText; }
-            set
-            {
-                this.textBoxText = value;
-                this.FirePropertyChanged();
-            }
-        }
-
         public ICommand Disconnect
         {
             get
@@ -134,7 +158,6 @@ namespace WPFClientSnake
                     {
                         MessageBox.Show(e.Message);
                     }
-
                 });
             }
         }
@@ -160,6 +183,9 @@ namespace WPFClientSnake
                     this.player = new PlayerClient(this.ipadress);
                     this.player.OnServerDisconnect += this.GetDisconnectFromClient;
                     this.player.OnNormalTextReceived += this.GetMessage;
+                    this.player.OnErrorMessageReceived += this.GetErrorMessage;
+                    this.player.OnFieldMessageReceived += this.GetField;
+                    this.player.OnObjectListReceived += this.GetObjects;
 
                     try
                     {
@@ -181,6 +207,8 @@ namespace WPFClientSnake
                 this.player.Stop();
                 this.player = null;
                 this.ipadress = null;
+                this.status = string.Empty;
+                this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
                 MessageBox.Show("Disconnected");
             }
             catch (Exception exception)
@@ -191,68 +219,64 @@ namespace WPFClientSnake
 
         public void GetErrorMessage(object sender, MessageContainerEventArgs e)
         {
-            this.textBoxChars.Clear();
-            this.TextBoxText = string.Empty;
+            this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
             this.Status = e.MessageContainer.Message;
-            this.MessageColor = Colors.Green;
+            this.MessageColor = Brushes.Red;
         }
 
         public void GetMessage(object sender, MessageContainerEventArgs e)
         {
-            this.textBoxChars.Clear();
-            this.TextBoxText = string.Empty;
+            this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
             this.Status = e.MessageContainer.Message;
-            this.MessageColor = Colors.Red;
+            this.MessageColor = Brushes.Green;
         }
 
         public void GetField(object sender, FieldMessageEventArgs e)
         {
             this.Status = string.Empty;
-            //TODO: Mit Canvas Propbieren
+            ObservableCollection<ObservableCollection<GameObject>> finalList = new ObservableCollection<ObservableCollection<GameObject>>();
+            
             for (int i = 0; i < e.FieldPrintContainer.Height; i++)
             {
-                List<char> temp = new List<char>();
+                ObservableCollection<GameObject> temp = new ObservableCollection<GameObject>();
+
                 for (int j = 0; j < e.FieldPrintContainer.Width; j++)
                 {
                     if (i == 0 || i == e.FieldPrintContainer.Height - 1)
                     {
-                        temp.Add(e.FieldPrintContainer.Symbol);
+                        temp.Add(new GameObject(new ObjectPrintContainer(e.FieldPrintContainer.Symbol, new Position(j, i), ConsoleColor.Black)));
                     }
-                    else if (j == 0 || j== e.FieldPrintContainer.Width - 1)
+                    else if (j == 0 || j == e.FieldPrintContainer.Width - 1)
                     {
-                        temp.Add(e.FieldPrintContainer.Symbol);
+                        temp.Add(new GameObject(new ObjectPrintContainer(e.FieldPrintContainer.Symbol, new Position(j, i), ConsoleColor.Black)));
                     }
                     else
                     {
-                        temp.Add(' ');
+                        temp.Add(new GameObject(new ObjectPrintContainer(' ', new Position(j, i), ConsoleColor.White)));
                     }
                 }
 
-                this.textBoxChars.Add(temp);
+                finalList.Add(temp);
             }
 
-            foreach (var list in this.textBoxChars)
-            {
-                foreach (var element in list)
-                {
-                    this.TextBoxText = this.TextBoxText + element.ToString();
-                }
-
-                this.TextBoxText = this.TextBoxText + "\n";
-            }
+            this.current.Invoke(new Action(() => { this.TextBoxList = finalList; }));
         }
 
         public void GetObjects(object sender, ObjectPrintEventArgs e)
         {
-            //TODO: Mit Canvas Propbieren
+            this.Points = e.ObjectPrintContainer.Information.Points;
+            this.SnakeLength = e.ObjectPrintContainer.Information.SnakeLength;
+
             foreach (var element in e.ObjectPrintContainer.OldItems)
             {
-                this.textBoxChars[element.PosInField.Y + 1][element.PosInField.X + 1] = ' ';
+                this.TextBoxList[element.PosInField.Y + 1][element.PosInField.X + 1].SetColor(ConsoleColor.White);
+                this.TextBoxList[element.PosInField.Y + 1][element.PosInField.X + 1].SetCharacter(' ');
             }
 
             foreach (var element in e.ObjectPrintContainer.NewItems)
             {
-                this.textBoxChars[element.PosInField.Y + 1][element.PosInField.X + 1] = ' ';
+                this.TextBoxList[element.PosInField.Y + 1][element.PosInField.X + 1].SetColor(element.Color);
+                this.TextBoxList[element.PosInField.Y + 1][element.PosInField.X + 1].SetCharacter(element.ObjectChar);
             }
         }
 

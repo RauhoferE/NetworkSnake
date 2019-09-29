@@ -57,6 +57,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\Command.cs" />
+    <Compile Include="ViewModel\BoolToColorConverter.cs" />
+    <Compile Include="ViewModel\GameObject.cs" />
     <Compile Include="ViewModel\InputValidatorVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,6 +74,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModel\MainVM.cs" />
     <Compile Include="ViewModel\PlayerVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

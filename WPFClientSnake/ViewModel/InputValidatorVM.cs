@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPFClientSnake.ViewModel
+namespace WPFClientSnake
 {
     using System.Windows.Input;
     using NetworkLibrary;
@@ -12,7 +12,7 @@ namespace WPFClientSnake.ViewModel
     public class InputValidatorVM
     {
         public event EventHandler<ClientSnakeMovementEventArgs> OnKeyPressed;
-        public void GetInput(object sender, KeyEventArgs e)
+        public void GetInput(KeyEventArgs e)
         {
             switch (e.Key)
             {
