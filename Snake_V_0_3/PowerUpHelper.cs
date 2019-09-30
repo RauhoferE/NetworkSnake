@@ -1,14 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="PowerUpHelper.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace Snake_V_0_3
 {
+    using System;
+
+    /// <summary>
+    /// The <see cref="PowerUpHelper"/> class.
+    /// </summary>
     public static class PowerUpHelper
     {
-
-        public static System.ConsoleColor GetRandomColor(Random rnd)
+        /// <summary>
+        /// This method returns a random color.
+        /// </summary>
+        /// <param name="rnd"> The random. </param>
+        /// <returns> It returns a <see cref="ConsoleColor"/>. </returns>
+        public static ConsoleColor GetRandomColor(Random rnd)
         {
             switch (rnd.Next(1, 12))
             {

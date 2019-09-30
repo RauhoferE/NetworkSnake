@@ -149,7 +149,7 @@ namespace NetworkLibrary
                         {
                             item.CloseConnection();
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                         }
                     }
@@ -204,7 +204,7 @@ namespace NetworkLibrary
                         {
                             client.CloseConnection();
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                         }
                     }

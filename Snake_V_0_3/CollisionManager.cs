@@ -1,15 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="CollisionManager.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace Snake_V_0_3
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    /// <summary>
+    /// The <see cref="CollisionManager"/> class.
+    /// </summary>
     public class CollisionManager
     {
+        /// <summary>
+        /// This event fires when the snake collides with a power up.
+        /// </summary>
         public event System.EventHandler<CollisionEventArgs> OnPowerUpCollided;
+
+        /// <summary>
+        /// This event fires when the snake collides with an obstacle.
+        /// </summary>
         public event System.EventHandler OnObsatcleCollided;
 
+        /// <summary>
+        /// This method checks the collision.
+        /// </summary>
+        /// <param name="field"> The <see cref="PlayingField"/>. </param>
+        /// <param name="powerups"> The list of power ups. </param>
+        /// <param name="snake"> The current snake. </param>
         public void CheckCollision(PlayingField field, List<StaticObjects> powerups, List<SnakeSegment> snake)
         {
             foreach (var element in snake)
@@ -42,14 +66,21 @@ namespace Snake_V_0_3
             }
         }
 
+        /// <summary>
+        /// This method fires the <see cref="OnPowerUpCollided"/> event.
+        /// </summary>
+        /// <param name="e"> The <see cref="CollisionEventArgs"/>. </param>
         protected virtual void FireOnPowerUpCollided(CollisionEventArgs e)
         {
-            OnPowerUpCollided?.Invoke(this, e);
+            this.OnPowerUpCollided?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// This method fires the <see cref="OnObsatcleCollided"/> event.
+        /// </summary>
         protected virtual void FireOnObsatcleCollided()
         {
-            OnObsatcleCollided?.Invoke(this, EventArgs.Empty);
+            this.OnObsatcleCollided?.Invoke(this, EventArgs.Empty);
         }
     }
 }

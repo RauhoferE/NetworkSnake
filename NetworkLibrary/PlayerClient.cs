@@ -52,8 +52,15 @@ namespace NetworkLibrary
         /// </summary>
         private System.Timers.Timer automaticPingSenderTimer;
 
+        /// <summary>
+        /// The server timer.
+        /// </summary>
         private System.Timers.Timer serverTimer;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerClient"/> class.
+        /// </summary>
+        /// <param name="ipAdress"> The <see cref="IPEndPoint"/>. </param>
         public PlayerClient(IPEndPoint ipAdress)
         {
             this.ipAdress = ipAdress;
@@ -67,24 +74,49 @@ namespace NetworkLibrary
             this.serverTimer.Elapsed += this.AutomaticClientClose;
         }
 
+        /// <summary>
+        /// This event should fire when a message has been received.
+        /// </summary>
         public event EventHandler<ByteMessageEventArgs> OnMessageReceived;
 
+        /// <summary>
+        /// This event should fire when a field message has been received.
+        /// </summary>
         public event EventHandler<FieldMessageEventArgs> OnFieldMessageReceived;
 
+        /// <summary>
+        /// This event should fire when a object list has been received.
+        /// </summary>
         public event EventHandler<ObjectPrintEventArgs> OnObjectListReceived;
 
+        /// <summary>
+        /// This event should fire when a error message has been received.
+        /// </summary>
         public event EventHandler<MessageContainerEventArgs> OnErrorMessageReceived;
 
+        /// <summary>
+        /// This event should fire when a text message has been received.
+        /// </summary>
         public event EventHandler<MessageContainerEventArgs> OnNormalTextReceived;
 
+        /// <summary>
+        /// This event should fire when the server disconnects.
+        /// </summary>
         public event EventHandler OnServerDisconnect;
 
+        /// <summary>
+        /// Gets a value indicating whether the connection is alive.
+        /// </summary>
+        /// <value> A normal boolean. </value>
         public bool IsAlive
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Starts the client.
+        /// </summary>
         public void Start()
         {
             if (this.thread != null && this.thread.IsAlive)
@@ -98,7 +130,6 @@ namespace NetworkLibrary
             }
             catch (Exception)
             {
-
                 throw new ArgumentException("Error cant connect.");
             }
 
@@ -110,6 +141,9 @@ namespace NetworkLibrary
             this.thread.Start();
         }
 
+        /// <summary>
+        /// Stops the client.
+        /// </summary>
         public void Stop()
         {
             if (this.thread == null || !this.thread.IsAlive)
@@ -126,7 +160,104 @@ namespace NetworkLibrary
             this.tcpClient = new TcpClient();
         }
 
-        public void Worker()
+        /// <summary>
+        /// Sends a message to the server.
+        /// </summary>
+        /// <param name="message"> The message. </param>
+        public void SendMessage(byte[] message)
+        {
+            this.ResetTimer();
+
+            if (this.tcpClient == null || !this.tcpClient.GetStream().CanWrite || !this.tcpClient.Connected)
+            {
+                throw new ArgumentException("Error");
+            }
+            else
+            {
+                try
+                {
+                    this.stream = this.tcpClient.GetStream();
+                    this.stream.Write(message, 0, message.Length);
+                }
+                catch (Exception)
+                {
+                    this.FireServerDisconnect();
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method fires the <see cref="OnMessageReceived"/> event.
+        /// </summary>
+        /// <param name="e"> The <see cref="ByteMessageEventArgs"/>. </param>
+        protected virtual void FireOnMessageReceived(ByteMessageEventArgs e)
+        {
+            if (this.OnMessageReceived != null)
+            {
+                this.OnMessageReceived(this, e);
+            }
+        }
+
+        /// <summary>
+        /// This method fires the <see cref="OnFieldMessageReceived"/> event.
+        /// </summary>
+        /// <param name="e"> The <see cref="FieldMessageEventArgs"/>. </param>
+        protected virtual void FireOnFieldMessageReceived(FieldMessageEventArgs e)
+        {
+            if (this.OnFieldMessageReceived != null)
+            {
+                this.OnFieldMessageReceived(this, e);
+            }
+        }
+
+        /// <summary>
+        /// This method fires the <see cref="OnObjectListReceived"/> event.
+        /// </summary>
+        /// <param name="e"> The <see cref="ObjectPrintContainer"/>. </param>
+        protected virtual void FireOnObjectListReceived(ObjectPrintEventArgs e)
+        {
+            if (this.OnObjectListReceived != null)
+            {
+                this.OnObjectListReceived(this, e);
+            }
+        }
+
+        /// <summary>
+        /// This method fires the <see cref="OnNormalTextReceived"/> event.
+        /// </summary>
+        /// <param name="e"> The <see cref="MessageContainerEventArgs"/>. </param>
+        protected virtual void FireNormalMessageReceived(MessageContainerEventArgs e)
+        {
+            if (this.OnNormalTextReceived != null)
+            {
+                this.OnNormalTextReceived(this, e);
+            }
+        }
+
+        /// <summary>
+        /// This method fires the <see cref="OnErrorMessageReceived"/> event.
+        /// </summary>
+        /// <param name="e"> The <see cref="MessageContainerEventArgs"/>. </param>
+        protected virtual void FireErrorMessageReceived(MessageContainerEventArgs e)
+        {
+            if (this.OnErrorMessageReceived != null)
+            {
+                this.OnErrorMessageReceived(this, e);
+            }
+        }
+
+        /// <summary>
+        /// This method fires the <see cref="OnServerDisconnect"/> event.
+        /// </summary>
+        protected virtual void FireServerDisconnect()
+        {
+            this.OnServerDisconnect?.Invoke(this, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// Starts the client.
+        /// </summary>
+        private void Worker()
         {
             if (this.tcpClient == null || this.tcpClient.GetStream() == null)
             {
@@ -163,90 +294,39 @@ namespace NetworkLibrary
             }
         }
 
-        public void SendMessage(byte[] message)
-        {
-            this.ResetTimer();
-
-            if (this.tcpClient == null || !this.tcpClient.GetStream().CanWrite || !this.tcpClient.Connected)
-            {
-                throw new ArgumentException("Error");
-            }
-            else
-            {
-                try
-                {
-                    this.stream = this.tcpClient.GetStream();
-                    this.stream.Write(message, 0, message.Length);
-                }
-                catch (Exception e)
-                {
-                    this.FireServerDisconnect();
-                }
-            }
-        }
-
-        protected virtual void FireOnMessageReceived(ByteMessageEventArgs e)
-        {
-            if (this.OnMessageReceived != null)
-            {
-                this.OnMessageReceived(this, e);
-            }
-        }
-
-        protected virtual void FireOnFieldMessageReceived(FieldMessageEventArgs e)
-        {
-            if (this.OnFieldMessageReceived != null)
-            {
-                this.OnFieldMessageReceived(this, e);
-            }
-        }
-
-        protected virtual void FireOnObjectListReceived(ObjectPrintEventArgs e)
-        {
-            if (this.OnObjectListReceived != null)
-            {
-                this.OnObjectListReceived(this, e);
-            }
-        }
-
-        protected virtual void FireNormalMessageReceived(MessageContainerEventArgs e)
-        {
-            if (this.OnNormalTextReceived != null)
-            {
-                this.OnNormalTextReceived(this, e);
-            }
-        }
-
-        protected virtual void FireErrorMessageReceived(MessageContainerEventArgs e)
-        {
-            if (this.OnErrorMessageReceived != null)
-            {
-                this.OnErrorMessageReceived(this, e);
-            }
-        }
-
-        protected virtual void FireServerDisconnect()
-        {
-            OnServerDisconnect?.Invoke(this, EventArgs.Empty);
-        }
-
+        /// <summary>
+        /// This method resets the ping timer.
+        /// </summary>
         private void ResetTimer()
         {
             this.automaticPingSenderTimer.Stop();
             this.automaticPingSenderTimer.Start();
         }
 
+        /// <summary>
+        /// This method resets the server timer.
+        /// </summary>
         private void ResetServerTimer()
         {
             this.serverTimer.Stop();
             this.serverTimer.Start();
         }
 
+        /// <summary>
+        /// This method stops the client.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="ElapsedEventArgs"/>. </param>
         private void AutomaticClientClose(object sender, ElapsedEventArgs e)
         {
             this.Stop();
         }
 
+        /// <summary>
+        /// This method sends a ping.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="ElapsedEventArgs"/>. </param>
         private void OnTimeout(object sender, ElapsedEventArgs e)
         {
             this.ResetTimer();
@@ -304,6 +384,11 @@ namespace NetworkLibrary
             }
         }
 
+        /// <summary>
+        /// This method removes the unused bytes from the message.
+        /// </summary>
+        /// <param name="list"> The byte message. </param>
+        /// <returns> It returns a new byte message. </returns>
         private List<byte> RemoveUnusedBytes(List<byte> list)
         {
             List<byte> hostname = new List<byte>();

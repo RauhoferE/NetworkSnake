@@ -203,7 +203,7 @@ namespace NetworkLibrary
                     return true;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 this.Strikes++;
                 return false;

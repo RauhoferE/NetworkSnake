@@ -1,17 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="DirectionLeft.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace Snake_V_0_3
 {
+    /// <summary>
+    /// The <see cref="DirectionLeft"/> class.
+    /// </summary>
     public class DirectionLeft : IDirection
     {
+        /// <summary>
+        /// Gets the id of the direction.
+        /// </summary>
+        /// <value> A normal integer. </value>
         public int ID
         {
             get { return 2; }
         }
 
+        /// <summary>
+        /// Gets the description of the direction.
+        /// </summary>
+        /// <value> A normal string. </value>
         public string Name
         {
             get { return "Left"; }

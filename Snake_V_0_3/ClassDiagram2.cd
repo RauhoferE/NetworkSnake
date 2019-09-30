@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Snake_V_0_3.Apple">
-    <Position X="6.75" Y="8" Width="2" />
+    <Position X="8.75" Y="9.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Apple.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.Color">
-    <Position X="9.25" Y="1.75" Width="4" />
+    <Position X="21.75" Y="0.5" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAACAAAAAA=</HashCode>
       <FileName>Color.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.GameObjects">
-    <Position X="0.5" Y="0.5" Width="2.75" />
+    <Position X="0.5" Y="0.75" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAQAAgAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAACAAACAAQAAgAEAAAA=</HashCode>
       <FileName>GameObjects.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -26,7 +26,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Snake_V_0_3.PlayingField">
-    <Position X="13.5" Y="0.5" Width="3" />
+    <Position X="23" Y="4.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAQAAAAEAAAA=</HashCode>
       <FileName>PlayingField.cs</FileName>
@@ -37,28 +37,28 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Snake_V_0_3.PowerUpHelper">
-    <Position X="15" Y="2.5" Width="3.25" />
+    <Position X="0.75" Y="15.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PowerUpHelper.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.Rainbow">
-    <Position X="2.75" Y="7.5" Width="2" />
+    <Position X="9" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Rainbow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.SegmentDestroyer">
-    <Position X="7" Y="6.5" Width="2.5" />
+    <Position X="8.25" Y="8.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SegmentDestroyer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.SnakeSegment">
-    <Position X="5" Y="0.5" Width="3.5" />
+    <Position X="10.75" Y="3" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAABA=</HashCode>
       <FileName>SnakeSegment.cs</FileName>
@@ -68,35 +68,35 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Snake_V_0_3.StaticObjects">
-    <Position X="3.25" Y="3.5" Width="2.75" />
+    <Position X="7.25" Y="3.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>StaticObjects.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.Position">
-    <Position X="0.5" Y="3.5" Width="1.75" />
+    <Position X="0.5" Y="6.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
       <FileName>Position.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.Icon">
-    <Position X="9.75" Y="4" Width="2.25" />
+    <Position X="20" Y="6" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Icon.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.StaticGameObjectFactory">
-    <Position X="16.25" Y="5" Width="4" />
+    <Position X="36.75" Y="5.75" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAEAAAEAAAAAAQAAAAAAQAAAAAAAAAAAAAIAAQAAAE=</HashCode>
       <FileName>StaticGameObjectFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.ObjectCreationThread">
-    <Position X="12.25" Y="6.5" Width="3" />
+    <Position X="34.5" Y="0.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAgEABAEACEAAAEEMAAAQAAAAAAAAAAAIEAAAAAAAAA=</HashCode>
       <FileName>ObjectCreationThread.cs</FileName>
@@ -106,7 +106,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Snake_V_0_3.StaticObjectEventArgs">
-    <Position X="6.25" Y="4.25" Width="3.5" />
+    <Position X="11.75" Y="6.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>EventArgs\StaticObjectEventArgs.cs</FileName>
@@ -116,23 +116,23 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Snake_V_0_3.ScoreBoard">
-    <Position X="16.5" Y="9" Width="4" />
+    <Position X="35.25" Y="11" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAIAgAAAAgACAAgAAAAAAAIAAAACAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAIAgAAAAgACAAgAAAAAAAIAAAACAACAA=</HashCode>
       <FileName>ScoreBoard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.ScoreEventArgs">
-    <Position X="14" Y="11.25" Width="2" />
+    <Position X="0.5" Y="17.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EventArgs\ScoreEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.SnakeMover">
-    <Position X="2.5" Y="12.25" Width="3" />
+    <Position X="15.5" Y="7" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>AAQIIAAAACACIgEiAAAAQAAAAgQMASAAIUgAAAAEAAA=</HashCode>
+      <HashCode>AAQIIAAAACACIgEiAAAAQAAAAgQMASAAIUgAAAAEAAQ=</HashCode>
       <FileName>SnakeMover.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -143,55 +143,45 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Snake_V_0_3.ObjectPlacementChecker">
-    <Position X="6" Y="15.25" Width="4.25" />
+    <Position X="34" Y="16.5" Width="6.75" />
     <TypeIdentifier>
       <HashCode>AAAEIAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ObjectPlacementChecker.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.CollisionManager">
-    <Position X="13.75" Y="14" Width="3.5" />
+    <Position X="13.5" Y="14" Width="6.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEABAAAAAAAAAAAAAAAAAAALAAAAAAAAAAAA=</HashCode>
       <FileName>CollisionManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Snake_V_0_3.ConsoleRenderer">
-    <Position X="10.75" Y="19" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
-      <FileName>ConsoleRenderer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Snake_V_0_3.Application">
-    <Position X="10.25" Y="8.25" Width="1.5" />
+    <Position X="29.25" Y="7.75" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AQiggAIAgDgIgwAAAAgAAIAAAAAAAACEIiAAAAiEikg=</HashCode>
+      <HashCode>AQCggAIAgDgIkwABAAgAAIAAAAAAAACEIgAAAAiECgg=</HashCode>
       <FileName>Application.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="collisionManager" />
+      <Field Name="powerupManager" />
       <Field Name="field" />
-      <Field Name="mover" />
-      <Field Name="objectContainer" />
       <Field Name="objectCreationThread" />
       <Field Name="objectPlacementChecker" />
-      <Field Name="powerupManager" />
+      <Field Name="mover" />
       <Field Name="scoreBoard" />
+      <Field Name="objectContainer" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Snake_V_0_3.PowerupManager">
-    <Position X="2" Y="20.5" Width="3" />
+    <Position X="2" Y="23.75" Width="4.5" />
     <TypeIdentifier>
       <HashCode>FAIAFAAAEAAAIooAAEIRAAAAAAoAAAAACACIAAkAUAA=</HashCode>
       <FileName>PowerupManager.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Powerups" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Snake_V_0_3.DirectionLeft">
-    <Position X="1.75" Y="18.75" Width="1.5" />
+    <Position X="2.75" Y="13.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Directions\DirectionLeft.cs</FileName>
@@ -199,7 +189,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Snake_V_0_3.DirectionRight">
-    <Position X="7" Y="18.75" Width="1.5" />
+    <Position X="0.5" Y="11.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Directions\DirectionRight.cs</FileName>
@@ -207,7 +197,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Snake_V_0_3.DirectionUp">
-    <Position X="3.5" Y="19" Width="1.5" />
+    <Position X="0.5" Y="13.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Directions\DirectionUp.cs</FileName>
@@ -215,7 +205,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Snake_V_0_3.DirectionDown">
-    <Position X="5.25" Y="18.75" Width="1.5" />
+    <Position X="2.75" Y="11.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Directions\DirectionDown.cs</FileName>
@@ -223,53 +213,46 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Snake_V_0_3.CollisionEventArgs">
-    <Position X="17.75" Y="14" Width="2.75" />
+    <Position X="16.5" Y="0.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EventArgs\CollisionEventArgs.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="PowerUp" />
       <Property Name="Segment" />
+      <Property Name="PowerUp" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Snake_V_0_3.ObjectContainer">
-    <Position X="14" Y="17.25" Width="2.25" />
+    <Position X="16.75" Y="20" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAhAAACQAIA0AMAAAwAIAAAAAAAAQIAQAAAAIAAA=</HashCode>
+      <HashCode>AAAAAhAAACQAIA1AMAAAgAIAAAAAAAAQIAQAAAAIAAA=</HashCode>
       <FileName>ObjectContainer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.SnakeEventArgs">
-    <Position X="18" Y="18.75" Width="1.5" />
+    <Position X="13.25" Y="0.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EventArgs\SnakeEventArgs.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Snake" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Snake_V_0_3.GameOBjectListEventArgs">
-    <Position X="6.75" Y="21" Width="3.5" />
+    <Position X="5.5" Y="0.5" Width="7" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAgAAAAAAAAAEAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>EventArgs\GameOBjectListEventArgs.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="NewObjects" />
-      <Property Name="OldObjects" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Snake_V_0_3.StringEventArgs">
-    <Position X="11.25" Y="21.25" Width="1.5" />
+    <Position X="2.75" Y="17.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>EventArgs\StringEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake_V_0_3.FieldEventArgs">
-    <Position X="11.25" Y="16" Width="1.5" />
+    <Position X="27.25" Y="4.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>EventArgs\FieldEventArgs.cs</FileName>
@@ -278,8 +261,18 @@
       <Property Name="Field" />
     </ShowAsAssociation>
   </Class>
+  <Class Name="Snake_V_0_3.DirectionEventArgs">
+    <Position X="8.75" Y="14" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\DirectionEventArgs.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Direction" />
+    </ShowAsAssociation>
+  </Class>
   <Interface Name="Snake_V_0_3.IDirection">
-    <Position X="7.5" Y="11.5" Width="2" />
+    <Position X="7.5" Y="11.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interface\IDirection.cs</FileName>
