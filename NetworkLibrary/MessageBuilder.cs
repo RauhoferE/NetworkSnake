@@ -1,10 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="MessageBuilder.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace NetworkLibrary
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
+    /// <summary>
+    /// The <see cref="MessageBuilder"/> class.
+    /// </summary>
     public class MessageBuilder
     {
         /// <summary>
@@ -18,7 +30,7 @@ namespace NetworkLibrary
         private List<byte> fullMessage;
 
         /// <summary>
-        /// This bool is true when a header has been found.
+        /// This boolean is true when a header has been found.
         /// </summary>
         private bool headerFound;
 

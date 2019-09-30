@@ -1,17 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="ObjectListContainer.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace NetworkLibrary
 {
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// The <see cref="ObjectListContainer"/> class.
+    /// </summary>
     [Serializable]
     public class ObjectListContainer
     {
-        private List<ObjectPrintContainer> oldItems;
-        private List<ObjectPrintContainer> newItems;
-        private GameInformationContainer information;
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectListContainer"/> class.
+        /// </summary>
+        /// <param name="oldItems"> The old item list. </param>
+        /// <param name="newItems"> The new item list.  </param>
+        /// <param name="information"> The game info.  </param>
         public ObjectListContainer(List<ObjectPrintContainer> oldItems, List<ObjectPrintContainer> newItems, GameInformationContainer information)
         {
             this.OldItems = oldItems;
@@ -19,58 +31,31 @@ namespace NetworkLibrary
             this.Information = information;
         }
 
+        /// <summary>
+        /// Gets the list of old items.
+        /// </summary>
+        /// <value> A list of <see cref="ObjectPrintContainer"/>. </value>
         public List<ObjectPrintContainer> OldItems
         {
-            get
-            {
-                return this.oldItems;
-            }
-
-           private set
-            {
-                if (value  == null)
-                {
-                    throw new ArgumentNullException("Error value cant be null.");
-                }
-
-                this.oldItems = value;
-            }
+            get;
         }
 
+        /// <summary>
+        /// Gets the list of new items.
+        /// </summary>
+        /// <value> A list of <see cref="ObjectPrintContainer"/>. </value>
         public List<ObjectPrintContainer> NewItems
         {
-            get
-            {
-                return this.newItems;
-            }
-
-            private set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Error value cant be null.");
-                }
-
-                this.newItems = value;
-            }
+            get;
         }
 
+        /// <summary>
+        /// Gets the game info.
+        /// </summary>
+        /// <value> A normal <see cref="GameInformationContainer"/>. </value>
         public GameInformationContainer Information
         {
-            get
-            {
-                return this.information;
-            }
-
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Error field cant be null.");
-                }
-
-                this.information = value;
-            }
+            get;
         }
     }
 }

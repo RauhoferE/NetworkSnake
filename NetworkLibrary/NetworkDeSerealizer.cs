@@ -1,14 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="NetworkDeSerealizer.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace NetworkLibrary
 {
+    using System;
+    using System.IO;
+    using System.Runtime.Serialization.Formatters.Binary;
+
+    /// <summary>
+    /// The <see cref="NetworkDeSerealizer"/> class.
+    /// </summary>
     public static class NetworkDeSerealizer
     {
+        /// <summary>
+        /// This method converts the byte stream to an <see cref="MessageContainer"/>.
+        /// </summary>
+        /// <param name="e"> The byte stream. </param>
+        /// <returns> It returns an instance of the <see cref="MessageContainer"/>. </returns>
         public static MessageContainer DeSerealizedMessage(byte[] e)
         {
             MessageContainer container;
@@ -18,8 +32,8 @@ namespace NetworkLibrary
                 using (var s = new MemoryStream(e))
                 {
                     BinaryFormatter writer = new BinaryFormatter();
-                    MessageContainer deSerealizedContainer = (MessageContainer)writer.Deserialize(s);
-                    container = deSerealizedContainer;
+                    MessageContainer deserealizedContainer = (MessageContainer)writer.Deserialize(s);
+                    container = deserealizedContainer;
                 }
             }
             catch (Exception ex)
@@ -30,6 +44,11 @@ namespace NetworkLibrary
             return container;
         }
 
+        /// <summary>
+        /// This method converts the byte stream to an <see cref="FieldPrintContainer"/>.
+        /// </summary>
+        /// <param name="e"> The byte stream. </param>
+        /// <returns> It returns an instance of the <see cref="FieldPrintContainer"/>. </returns>
         public static FieldPrintContainer DeSerealizedFieldMessage(byte[] e)
         {
             FieldPrintContainer container;
@@ -39,8 +58,8 @@ namespace NetworkLibrary
                 using (var s = new MemoryStream(e))
                 {
                     BinaryFormatter writer = new BinaryFormatter();
-                    FieldPrintContainer deSerealizedContainer = (FieldPrintContainer)writer.Deserialize(s);
-                    container = deSerealizedContainer;
+                    FieldPrintContainer deserealizedContainer = (FieldPrintContainer)writer.Deserialize(s);
+                    container = deserealizedContainer;
                 }
             }
             catch (Exception ex)
@@ -51,6 +70,11 @@ namespace NetworkLibrary
             return container;
         }
 
+        /// <summary>
+        /// This method converts the byte stream to an <see cref="GameInformationContainer"/>.
+        /// </summary>
+        /// <param name="e"> The byte stream. </param>
+        /// <returns> It returns an instance of the <see cref="GameInformationContainer"/>. </returns>
         public static GameInformationContainer DeSerealizedGameInfo(byte[] e)
         {
             GameInformationContainer container;
@@ -60,8 +84,8 @@ namespace NetworkLibrary
                 using (var s = new MemoryStream(e))
                 {
                     BinaryFormatter writer = new BinaryFormatter();
-                    GameInformationContainer deSerealizedContainer = (GameInformationContainer)writer.Deserialize(s);
-                    container = deSerealizedContainer;
+                    GameInformationContainer deserealizedContainer = (GameInformationContainer)writer.Deserialize(s);
+                    container = deserealizedContainer;
                 }
             }
             catch (Exception ex)
@@ -72,6 +96,11 @@ namespace NetworkLibrary
             return container;
         }
 
+        /// <summary>
+        /// This method converts the byte stream to an <see cref="ObjectListContainer"/>.
+        /// </summary>
+        /// <param name="e"> The byte stream. </param>
+        /// <returns> It returns an instance of the <see cref="ObjectListContainer"/>. </returns>
         public static ObjectListContainer DeSerealizedObjectList(byte[] e)
         {
             ObjectListContainer container;
@@ -81,8 +110,8 @@ namespace NetworkLibrary
                 using (var s = new MemoryStream(e))
                 {
                     BinaryFormatter writer = new BinaryFormatter();
-                    ObjectListContainer deSerealizedContainer = (ObjectListContainer)writer.Deserialize(s);
-                    container = deSerealizedContainer;
+                    ObjectListContainer deserealizedContainer = (ObjectListContainer)writer.Deserialize(s);
+                    container = deserealizedContainer;
                 }
             }
             catch (Exception ex)
@@ -93,6 +122,11 @@ namespace NetworkLibrary
             return container;
         }
 
+        /// <summary>
+        /// This method converts the byte stream to an <see cref="MoveSnakeContainer"/>.
+        /// </summary>
+        /// <param name="e"> The byte stream. </param>
+        /// <returns> It returns an instance of the <see cref="MoveSnakeContainer"/>. </returns>
         public static MoveSnakeContainer DeSerealizeSnakeMovement(byte[] e)
         {
             MoveSnakeContainer container;
@@ -102,8 +136,8 @@ namespace NetworkLibrary
                 using (var s = new MemoryStream(e))
                 {
                     BinaryFormatter writer = new BinaryFormatter();
-                    MoveSnakeContainer deSerealizedContainer = (MoveSnakeContainer)writer.Deserialize(s);
-                    container = deSerealizedContainer;
+                    MoveSnakeContainer deserealizedContainer = (MoveSnakeContainer)writer.Deserialize(s);
+                    container = deserealizedContainer;
                 }
             }
             catch (Exception ex)

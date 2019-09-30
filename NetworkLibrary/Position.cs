@@ -8,9 +8,6 @@ namespace NetworkLibrary
     [Serializable]
     public class Position
     {
-        private int x;
-        private int y;
-
         public Position(int x, int y)
         {
             this.X = x;
@@ -19,28 +16,12 @@ namespace NetworkLibrary
 
         public int X
         {
-            get
-            {
-                return this.x;
-            }
-            private set
-            {
-
-                this.x = value;
-            }
+            get;
         }
 
         public int Y
         {
-            get
-            {
-                return this.y;
-            }
-            private set
-            {
-
-                this.y = value;
-            }
+            get;
         }
     }
 }

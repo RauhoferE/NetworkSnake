@@ -49,7 +49,7 @@
     <Compile Include="EventArgs\FieldMessageEventArgs.cs" />
     <Compile Include="FieldPrintContainer.cs" />
     <Compile Include="GameInformationContainer.cs" />
-    <Compile Include="Host.cs" />
+    <Compile Include="ServerHost.cs" />
     <Compile Include="Interfaces\IInputType.cs" />
     <Compile Include="Interfaces\IMessageType.cs" />
     <Compile Include="IPHelper.cs" />

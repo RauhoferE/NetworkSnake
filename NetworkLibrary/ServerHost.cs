@@ -42,6 +42,11 @@ namespace NetworkLibrary
         private object locker;
 
         /// <summary>
+        /// Represents the current number of connected clients.
+        /// </summary>
+        private int currentID;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ServerHost"/> class.
         /// </summary>
         /// <param name="port"> The number of the port. </param>
@@ -51,6 +56,7 @@ namespace NetworkLibrary
             this.listener = new TcpListener(IPAddress.Any, port);
             this.IsRunning = false;
             this.locker = new object();
+            this.currentID = 0;
         }
 
         /// <summary>
@@ -110,14 +116,13 @@ namespace NetworkLibrary
         /// <param name="message"> The byte message. </param>
         public void SendToClients(byte[] message)
         {
-            lock (locker)
+            lock (this.locker)
             {
                 if (!this.CheckIfClientsAreConnected())
                 {
                     return;
                 }
                 
-
                 bool areClosedConnectionsInList = false;
                 foreach (var item in this.clients)
                 {
@@ -138,6 +143,7 @@ namespace NetworkLibrary
                     if (item.Strikes >= 2)
                     {
                         areClosedConnectionsInList = true;
+                        this.currentID--;
 
                         try
                         {
@@ -146,7 +152,6 @@ namespace NetworkLibrary
                         catch (Exception e)
                         {
                         }
-
                     }
                 }
 
@@ -158,26 +163,13 @@ namespace NetworkLibrary
         }
 
         /// <summary>
-        /// This method checks if any clients are still connected.
+        /// This method send the message to the client with the id.
         /// </summary>
-        /// <returns> It returns true if the clients are still connected. </returns>
-        private bool CheckIfClientsAreConnected()
-        {
-            lock (locker)
-            {
-                if (this.clients.Count == 0)
-                {
-                    this.FireOnNoClientConnected();
-                    return false;
-                }
-
-                return true;
-            }
-        }
-
+        /// <param name="message"> The byte message. </param>
+        /// <param name="clientId"> The client id. </param>
         public void SendToClient(byte[] message, int clientId)
         {
-            lock (locker)
+            lock (this.locker)
             {
                 if (!this.CheckIfClientsAreConnected())
                 {
@@ -205,40 +197,24 @@ namespace NetworkLibrary
 
                     if (client.Strikes >= 2)
                     {
+                        areClosedConnectionsInList = true;
+                        this.currentID--;
+
                         try
                         {
-                            areClosedConnectionsInList = true;
                             client.CloseConnection();
                         }
                         catch (Exception e)
                         {
                         }
-                        
                     }
 
                     if (areClosedConnectionsInList)
                     {
                         this.RemoveClosedConnectionsFromList();
                     }
-                    
                 }
             }
-
-        }
-
-        public void ReceiveFromClient(object sender, SnakeMoveEventArgs e)
-        {
-            this.FireOnClientSnakeMovementReceived(e);
-        }
-
-        public void ReceivePingFromClient(object sender, EventArgs e)
-        {
-            this.FireOnPingReceived();
-        }
-
-        public void ClientDisconnected(object sender, ClientIDEventArgs e)
-        {
-            this.FireOnClientDisconnect(e);
         }
 
         /// <summary>
@@ -266,6 +242,7 @@ namespace NetworkLibrary
         /// <summary>
         /// This method fires when a client has been connected.
         /// </summary>
+        /// <param name="e"> The <see cref="ClientIDEventArgs"/>. </param>
         protected virtual void FireOnClientConnected(ClientIDEventArgs e)
         {
             if (this.OnClientConnected != null)
@@ -274,6 +251,10 @@ namespace NetworkLibrary
             }
         }
 
+        /// <summary>
+        /// This method fires when a client has been disconnected.
+        /// </summary>
+        /// <param name="e"> The <see cref="ClientIDEventArgs"/>. </param>
         protected virtual void FireOnClientDisconnect(ClientIDEventArgs e)
         {
             if (this.OnClientDisconnect != null)
@@ -282,6 +263,10 @@ namespace NetworkLibrary
             }
         }
 
+        /// <summary>
+        /// This method fires when snake movement has been received.
+        /// </summary>
+        /// <param name="e"> The <see cref="SnakeMoveEventArgs"/>. </param>
         protected virtual void FireOnClientSnakeMovementReceived(SnakeMoveEventArgs e)
         {
             if (this.OnSnakeMovementReceived != null)
@@ -291,29 +276,89 @@ namespace NetworkLibrary
         }
 
         /// <summary>
+        /// This method fires when no client is connected.
+        /// </summary>
+        protected virtual void FireOnNoClientConnected()
+        {
+            this.OnNoClientConnected?.Invoke(this, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// This method fires when a ping has been received.
+        /// </summary>
+        protected virtual void FireOnPingReceived()
+        {
+            this.OnPingReceived?.Invoke(this, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// This method checks if any clients are still connected.
+        /// </summary>
+        /// <returns> It returns true if the clients are still connected. </returns>
+        private bool CheckIfClientsAreConnected()
+        {
+            lock (this.locker)
+            {
+                if (this.clients.Count == 0)
+                {
+                    this.FireOnNoClientConnected();
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// This method fires when a snake movement from a client has been received.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="SnakeMoveEventArgs"/>. </param>
+        private void ReceiveFromClient(object sender, SnakeMoveEventArgs e)
+        {
+            this.FireOnClientSnakeMovementReceived(e);
+        }
+
+        /// <summary>
+        /// This method fires when a ping from a client has been received.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="SnakeMoveEventArgs"/>. </param>
+        private void ReceivePingFromClient(object sender, EventArgs e)
+        {
+            this.FireOnPingReceived();
+        }
+
+        /// <summary>
+        /// This method fires when a client has been disconnected.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="ClientIDEventArgs"/>. </param>
+        private void ClientDisconnected(object sender, ClientIDEventArgs e)
+        {
+            this.FireOnClientDisconnect(e);
+        }
+
+        /// <summary>
         /// This method accepts the clients.
         /// </summary>
         private void AcceptClients()
         {
-            int currentID = 0;
-
             while (this.IsRunning == true)
             {
-                ServerClient client = new ServerClient(this.listener.AcceptTcpClient(), currentID);
+                ServerClient client = new ServerClient(this.listener.AcceptTcpClient(), this.currentID);
                 client.OnClientDisconnect += this.ClientDisconnected;
                 client.OnSnakeMovementReceived += this.ReceiveFromClient;
                 client.OnPingReceived += this.ReceivePingFromClient;
                 client.Start();
 
-                lock (locker)
+                lock (this.locker)
                 {
                     this.clients.Add(client);
                 }
                 
-                this.FireOnClientConnected(new ClientIDEventArgs(currentID));
-                currentID++;
-
-
+                this.FireOnClientConnected(new ClientIDEventArgs(this.currentID));
+                this.currentID++;
             }
         }
 
@@ -324,7 +369,7 @@ namespace NetworkLibrary
         {
             List<ServerClient> oldClients = new List<ServerClient>();
 
-            lock (locker)
+            lock (this.locker)
             {
                 foreach (var item in this.clients)
                 {
@@ -332,7 +377,7 @@ namespace NetworkLibrary
                 }
             }
 
-            lock (locker)
+            lock (this.locker)
             {
                 foreach (var item in oldClients)
                 {
@@ -342,17 +387,6 @@ namespace NetworkLibrary
                     }
                 }
             }
-
-        }
-
-        protected virtual void FireOnNoClientConnected()
-        {
-            OnNoClientConnected?.Invoke(this, EventArgs.Empty);
-        }
-
-        protected virtual void FireOnPingReceived()
-        {
-            OnPingReceived?.Invoke(this, EventArgs.Empty);
         }
     }
 }

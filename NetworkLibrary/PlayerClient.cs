@@ -1,27 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
-using System.Timers;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="PlayerClient.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace NetworkLibrary
 {
-    using Microsoft.Win32;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Sockets;
+    using System.Threading;
+    using System.Timers;
 
+    /// <summary>
+    /// The <see cref="PlayerClient"/> class.
+    /// </summary>
     public class PlayerClient
     {
+        /// <summary>
+        /// Represents the receive thread.
+        /// </summary>
         private Thread thread;
+
+        /// <summary>
+        /// The endpoint.
+        /// </summary>
         private IPEndPoint ipAdress;
 
+        /// <summary>
+        /// The message builder.
+        /// </summary>
         private MessageBuilder messageBuilder;
 
+        /// <summary>
+        /// The networks stream.
+        /// </summary>
         private NetworkStream stream;
 
+        /// <summary>
+        /// The client.
+        /// </summary>
         private TcpClient tcpClient;
 
+        /// <summary>
+        /// The ping send timer.
+        /// </summary>
         private System.Timers.Timer automaticPingSenderTimer;
 
         private System.Timers.Timer serverTimer;
@@ -55,12 +83,6 @@ namespace NetworkLibrary
         {
             get;
             private set;
-        }
-
-        public void OnTimeout(object sender, ElapsedEventArgs e)
-        {
-            this.ResetTimer();
-            this.SendMessage(NetworkSerealizer.SerealizePing());
         }
 
         public void Start()
@@ -163,11 +185,6 @@ namespace NetworkLibrary
             }
         }
 
-        private void AutomaticClientClose(object sender, ElapsedEventArgs e)
-        {
-            this.Stop();
-        }
-
         protected virtual void FireOnMessageReceived(ByteMessageEventArgs e)
         {
             if (this.OnMessageReceived != null)
@@ -223,6 +240,17 @@ namespace NetworkLibrary
         {
             this.serverTimer.Stop();
             this.serverTimer.Start();
+        }
+
+        private void AutomaticClientClose(object sender, ElapsedEventArgs e)
+        {
+            this.Stop();
+        }
+
+        private void OnTimeout(object sender, ElapsedEventArgs e)
+        {
+            this.ResetTimer();
+            this.SendMessage(NetworkSerealizer.SerealizePing());
         }
 
         /// <summary>
