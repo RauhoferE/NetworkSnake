@@ -8,45 +8,50 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeServer.ConsoleRenderer">
-    <Position X="6" Y="0.5" Width="1.5" />
+    <Position X="8.25" Y="0.5" Width="5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAABAAAAAAAAAAIAEQAAAAAQAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AgAAAAAABAAAAAAAAAAIAEQAAAAAQACAAAAABAAAAAA=</HashCode>
       <FileName>ConsoleRenderer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SnakeServer.MovementManager">
-    <Position X="6.5" Y="4.5" Width="4.75" />
+    <Position X="8.25" Y="4.5" Width="4" />
     <TypeIdentifier>
-      <HashCode>BAAAABAAACAAIAFREAAAAAAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <HashCode>BAAAABAAAGAAIAFREAAAAAAAAIAAAAAAIAAAAAAABAA=</HashCode>
       <FileName>MovementManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SnakeServer.MessageEventArgs">
-    <Position X="14.25" Y="2.5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
-      <FileName>MessageEventArgs.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SnakeServer.WindowWatcher">
-    <Position X="12" Y="2.75" Width="1.5" />
+    <Position X="3" Y="8.75" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAABAAACAAAAEAAgAAQAAAAAAAAAAAIAAAAAAAAIA=</HashCode>
       <FileName>WindowWatcher.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeServer.Application">
-    <Position X="3.5" Y="0.5" Width="2.25" />
+    <Position X="1" Y="2.5" Width="5" />
     <TypeIdentifier>
-      <HashCode>AAAEgEgAACAAAAAAgEAAEAQAAAAAAAAAIQCABAiAgAA=</HashCode>
+      <HashCode>AAAEgBgAACAAAABAgECAEASAAAAAAAAAIQAAAAgEgAA=</HashCode>
       <FileName>Application.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="movementManager" />
+      <Field Name="windowWatcher" />
+      <Field Name="renderer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SnakeServer.DateTimeReturner">
+    <Position X="15.25" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>DateTimeReturner.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="SnakeServer.IRenderer">
-    <Position X="7.75" Y="0.5" Width="2" />
+    <Position X="14.5" Y="0.5" Width="5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAABAAAAAAAAAAIAEQAAAAAQAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AgAAAAAABAAAAAAAAAAIAEQAAAAAQACAAAAABAAAAAA=</HashCode>
       <FileName>IRenderer.cs</FileName>
     </TypeIdentifier>
   </Interface>

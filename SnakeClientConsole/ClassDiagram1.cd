@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="SnakeClientConsole.Program">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeClientConsole.ConsoleRenderer">
-    <Position X="16.75" Y="4.25" Width="2" />
+    <Position X="20" Y="4.25" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AQAAgAAAgAACAAAAAAAAAAAAAABAQBCAAAAAAAAAAAA=</HashCode>
       <FileName>ConsoleRenderer.cs</FileName>
@@ -16,7 +16,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SnakeClientConsole.KeyBoardWatcher">
-    <Position X="12.5" Y="7" Width="2" />
+    <Position X="14.75" Y="8.25" Width="4" />
     <TypeIdentifier>
       <HashCode>AAABAAAAACQAAAFAAAAAAAAAAAACAAAAIAAAAAAAAAA=</HashCode>
       <FileName>KeyBoardWatcher.cs</FileName>
@@ -24,71 +24,71 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SnakeClientConsole.App">
-    <Position X="2.75" Y="0.75" Width="2" />
+    <Position X="2.75" Y="0.75" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgACABAAAAAAAAAAQAQAAAAAABICAAQIAAgEg=</HashCode>
       <FileName>App.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="inputValidatorForIpInput" />
       <Field Name="inputWatcher" />
-      <Field Name="ipAdressCreator" />
       <Field Name="renderer" />
       <Field Name="validator" />
       <Field Name="windowWatcher" />
+      <Field Name="inputValidatorForIpInput" />
+      <Field Name="ipAdressCreator" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SnakeClientConsole.InputValidator">
-    <Position X="5" Y="3.5" Width="1.75" />
+    <Position X="9.25" Y="4.75" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>InputValidator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeClientConsole.WindowWatcher">
-    <Position X="0.5" Y="5.75" Width="1.5" />
+    <Position X="0.5" Y="5.75" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAABAAACAAAAEAAgAAQAAAAAAAAAAAIAAAAAAAAIA=</HashCode>
       <FileName>WindowWatcher.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeClientConsole.ConsoleKeyEventArgs">
-    <Position X="14.75" Y="6" Width="1.75" />
+    <Position X="19.5" Y="9.25" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>EventArgs\ConsoleKeyEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeClientConsole.InputValidatorForIPInput">
-    <Position X="7" Y="5.25" Width="2" />
+    <Position X="5.5" Y="10.75" Width="4.5" />
     <TypeIdentifier>
       <HashCode>gAgAAAAAAEAKQBAAAAAAAAQAAAAAAAAEAoAAAAAAAAA=</HashCode>
       <FileName>InputValidatorForIPInput.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeClientConsole.IpAdressCreator">
-    <Position X="10" Y="4.5" Width="2" />
+    <Position X="10.5" Y="7.25" Width="3.75" />
     <TypeIdentifier>
       <HashCode>gQAAAAAAAEAQQAAAAAAAAAAAAAAAAAAEAAAAAAAgAAA=</HashCode>
       <FileName>IpAdressCreator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeClientConsole.CharEventArgs">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+    <Position X="16.5" Y="4.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>EventArgs\CharEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="SnakeClientConsole.IRenderer">
-    <Position X="10.25" Y="0.5" Width="2" />
+    <Position X="18.75" Y="0.75" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AQAAgAAAgAACAAAAAAAAAAAAAABAQBCAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IRenderer.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SnakeClientConsole.IInputWatcher">
-    <Position X="6.5" Y="0.5" Width="1.75" />
+    <Position X="9.5" Y="0.75" Width="4" />
     <TypeIdentifier>
       <HashCode>AAABAAAAACAAAAAAAAAAAAAAAAACAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IInputWatcher.cs</FileName>

@@ -48,7 +48,6 @@
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="DateTimeReturner.cs" />
     <Compile Include="IRenderer.cs" />
-    <Compile Include="MessageEventArgs.cs" />
     <Compile Include="MovementManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
