@@ -18,7 +18,7 @@
   <Class Name="SnakeClientConsole.KeyBoardWatcher">
     <Position X="4.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAACQAAAEAAAAAAAAAAAACAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAABAAAAACQAAAFAAAAAAAAAAAACAAAAIAAAAAAAAAA=</HashCode>
       <FileName>KeyBoardWatcher.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -70,6 +70,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>CharEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeClientConsole.DateTimeReturner">
+    <Position X="13" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DateTimeReturner.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="SnakeClientConsole.IRenderer">

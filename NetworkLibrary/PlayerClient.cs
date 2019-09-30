@@ -45,8 +45,6 @@ namespace NetworkLibrary
 
         public event EventHandler<ObjectPrintEventArgs> OnObjectListReceived;
 
-        public event EventHandler<GameInfoEventArgs> OnGameInfoReceived;
-
         public event EventHandler<MessageContainerEventArgs> OnErrorMessageReceived;
 
         public event EventHandler<MessageContainerEventArgs> OnNormalTextReceived;
@@ -186,14 +184,6 @@ namespace NetworkLibrary
             }
         }
 
-        protected virtual void FireOnGameInfoReceived(GameInfoEventArgs e)
-        {
-            if (this.OnGameInfoReceived != null)
-            {
-                this.OnGameInfoReceived(this, e);
-            }
-        }
-
         protected virtual void FireOnObjectListReceived(ObjectPrintEventArgs e)
         {
             if (this.OnObjectListReceived != null)
@@ -245,7 +235,6 @@ namespace NetworkLibrary
             MessageTypePing pingType = new MessageTypePing();
             MessageTypePrintErrorMessage errorMessage = new MessageTypePrintErrorMessage();
             MessageTypePrintField fieldMessage = new MessageTypePrintField();
-            MessageTypePrintInformation printInfo = new MessageTypePrintInformation();
             MessageTypePrintObject printObject = new MessageTypePrintObject();
             MessageTypePrintString printMessage = new MessageTypePrintString();
 
@@ -268,14 +257,6 @@ namespace NetworkLibrary
                 FieldPrintContainer container = NetworkDeSerealizer.DeSerealizedFieldMessage(message.ToArray());
                 this.ResetServerTimer();
                 this.FireOnFieldMessageReceived(new FieldMessageEventArgs(container));
-            }
-            else if (e.Message[0] == (byte)printInfo.Id)
-            {
-                List<byte> message = e.Message.ToList();
-                this.RemoveUnusedBytes(message);
-                GameInformationContainer container = NetworkDeSerealizer.DeSerealizedGameInfo(message.ToArray());
-                this.ResetServerTimer();
-                this.FireOnGameInfoReceived(new GameInfoEventArgs(container));
             }
             else if (e.Message[0] == (byte)printObject.Id)
             {

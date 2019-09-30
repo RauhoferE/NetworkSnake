@@ -13,7 +13,6 @@ namespace WPFClientSnake
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Threading;
-    using Commands;
     using NetworkLibrary;
 
     public class PlayerVM : INotifyPropertyChanged

@@ -1,6 +1,6 @@
 ﻿
 
-namespace WPFClientSnake.Commands
+namespace WPFClientSnake
 {
     using System;
     using System.Windows.Input;

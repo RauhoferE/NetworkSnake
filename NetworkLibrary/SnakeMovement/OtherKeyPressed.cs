@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ByteMessageEventArgs.cs" company="FH Wiener Neustadt">
+// <copyright file="OtherKeyPressed.cs" company="FH Wiener Neustadt">
 //     Copyright (c) Emre Rauhofer. All rights reserved.
 // </copyright>
 // <author>Emre Rauhofer</author>
@@ -12,26 +12,27 @@ namespace NetworkLibrary
     using System;
 
     /// <summary>
-    /// The byte message event args.
+    /// The <see cref="OtherKeyPressed"/> class.
     /// </summary>
-    public class ByteMessageEventArgs : EventArgs
+    [Serializable]
+    public class OtherKeyPressed : IInputType
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ByteMessageEventArgs"/> class.
+        /// Gets the id of the movement.
         /// </summary>
-        /// <param name="message"> The byte message. </param>
-        public ByteMessageEventArgs(byte[] message)
+        /// <value> A normal integer. </value>
+        public string Description
         {
-            this.Message = message;
+            get { return "Any Key"; }
         }
 
         /// <summary>
-        /// Gets the byte message.
+        /// Gets the description of the message.
         /// </summary>
-        /// <value> A normal byte array. </value>
-        public byte[] Message
+        /// <value> A normal string. </value>
+        public int Id
         {
-            get;
+            get { return 999; }
         }
     }
 }

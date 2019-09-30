@@ -1,16 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="ServerHost.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace NetworkLibrary
 {
-    using System.ComponentModel;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Sockets;
+    using System.Threading;
 
+    /// <summary>
+    /// The <see cref="ServerHost"/> class.
+    /// </summary>
     public class ServerHost
     {
         /// <summary>
@@ -28,6 +36,9 @@ namespace NetworkLibrary
         /// </summary>
         private List<ServerClient> clients;
 
+        /// <summary>
+        /// The locker object.
+        /// </summary>
         private object locker;
 
         /// <summary>
@@ -42,12 +53,24 @@ namespace NetworkLibrary
             this.locker = new object();
         }
 
+        /// <summary>
+        /// This event fires when a client has been disconnected.
+        /// </summary>
         public event EventHandler<ClientIDEventArgs> OnClientDisconnect;
 
+        /// <summary>
+        /// This event fires when a snake movement has been received.
+        /// </summary>
         public event EventHandler<SnakeMoveEventArgs> OnSnakeMovementReceived;
 
+        /// <summary>
+        /// This event fires when no client has been connected.
+        /// </summary>
         public event EventHandler OnNoClientConnected;
 
+        /// <summary>
+        /// This event fires when a ping has been received.
+        /// </summary>
         public event EventHandler OnPingReceived;
 
         /// <summary>
@@ -134,6 +157,10 @@ namespace NetworkLibrary
             }
         }
 
+        /// <summary>
+        /// This method checks if any clients are still connected.
+        /// </summary>
+        /// <returns> It returns true if the clients are still connected. </returns>
         private bool CheckIfClientsAreConnected()
         {
             lock (locker)
@@ -159,9 +186,9 @@ namespace NetworkLibrary
 
                 bool areClosedConnectionsInList = false;
 
-                if (this.clients.Where(x => x.clientId == clientId).FirstOrDefault() != null)
+                if (this.clients.Where(x => x.ClientId == clientId).FirstOrDefault() != null)
                 {
-                    var client = this.clients.Where(x => x.clientId == clientId).FirstOrDefault();
+                    var client = this.clients.Where(x => x.ClientId == clientId).FirstOrDefault();
                     if (client.IsConnectionClosed)
                     {
                         client.Strikes = 2;

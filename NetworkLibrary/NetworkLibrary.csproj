@@ -43,12 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventArgs\ByteMessageEventArgs.cs" />
-    <Compile Include="Client.cs" />
+    <Compile Include="ServerClient.cs" />
     <Compile Include="EventArgs\ClientIDEventArgs.cs" />
     <Compile Include="EventArgs\ClientSnakeMovementEventArgs.cs" />
     <Compile Include="EventArgs\FieldMessageEventArgs.cs" />
     <Compile Include="FieldPrintContainer.cs" />
-    <Compile Include="GameInfoEventArgs.cs" />
     <Compile Include="GameInformationContainer.cs" />
     <Compile Include="Host.cs" />
     <Compile Include="Interfaces\IInputType.cs" />
@@ -61,11 +60,10 @@
     <Compile Include="MessageTypes\MessageTypePing.cs" />
     <Compile Include="MessageTypes\MessageTypePrintErrorMessage.cs" />
     <Compile Include="MessageTypes\MessageTypePrintField.cs" />
-    <Compile Include="MessageTypes\MessageTypePrintInformation.cs" />
     <Compile Include="MessageTypes\MessageTypePrintObject.cs" />
     <Compile Include="MessageTypes\MessageTypePrintString.cs" />
     <Compile Include="MoveSnakeContainer.cs" />
-    <Compile Include="OtherKeyPressed.cs" />
+    <Compile Include="SnakeMovement\OtherKeyPressed.cs" />
     <Compile Include="SnakeMovement\MoveSnakeDown.cs" />
     <Compile Include="SnakeMovement\MoveSnakeLeft.cs" />
     <Compile Include="SnakeMovement\MoveSnakeRight.cs" />

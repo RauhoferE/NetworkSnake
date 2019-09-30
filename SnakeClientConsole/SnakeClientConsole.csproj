@@ -48,6 +48,7 @@
     <Compile Include="CharEventArgs.cs" />
     <Compile Include="ConsoleKeyEventArgs.cs" />
     <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="DateTimeReturner.cs" />
     <Compile Include="IInputWatcher.cs" />
     <Compile Include="InputValidator.cs" />
     <Compile Include="InputValidatorForIPInput.cs" />
