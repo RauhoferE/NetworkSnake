@@ -1,8 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="ConsoleKeyEventArgs.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace SnakeClientConsole
 {
     using System;
@@ -10,7 +14,7 @@ namespace SnakeClientConsole
     /// <summary>
     /// The <see cref="ConsoleKeyEventArgs"/> class.
     /// </summary>
-    public class ConsoleKeyEventArgs
+    public class ConsoleKeyEventArgs : EventArgs
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConsoleKeyEventArgs"/> class.
@@ -32,7 +36,6 @@ namespace SnakeClientConsole
         public ConsoleKey Key
         {
             get;
-            private set;
         }
 
         /// <summary>
@@ -42,7 +45,6 @@ namespace SnakeClientConsole
         public ConsoleModifiers Modifier
         {
             get;
-            private set;
         }
 
         /// <summary>
@@ -52,7 +54,6 @@ namespace SnakeClientConsole
         public char ConsoleChar
         {
             get;
-            private set;
         }
     }
 }

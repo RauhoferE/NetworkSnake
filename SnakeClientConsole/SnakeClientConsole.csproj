@@ -45,15 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="CharEventArgs.cs" />
-    <Compile Include="ConsoleKeyEventArgs.cs" />
+    <Compile Include="EventArgs\CharEventArgs.cs" />
+    <Compile Include="EventArgs\ConsoleKeyEventArgs.cs" />
     <Compile Include="ConsoleRenderer.cs" />
-    <Compile Include="DateTimeReturner.cs" />
-    <Compile Include="IInputWatcher.cs" />
+    <Compile Include="Interfaces\IInputWatcher.cs" />
     <Compile Include="InputValidator.cs" />
     <Compile Include="InputValidatorForIPInput.cs" />
     <Compile Include="IpAdressCreator.cs" />
-    <Compile Include="IRenderer.cs" />
+    <Compile Include="Interfaces\IRenderer.cs" />
     <Compile Include="KeyBoardWatcher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,5 +68,6 @@
       <Name>NetworkLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,16 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="IpAdressCreator.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace SnakeClientConsole
 {
+    using System;
+
+    /// <summary>
+    /// The <see cref="IpAdressCreator"/> class.
+    /// </summary>
     public class IpAdressCreator
     {
-        public event System.EventHandler OnDeleteKeyPressed;
-        public event System.EventHandler<CharEventArgs> OnCharPressed;
-        public event System.EventHandler OnEnterPressed;
+        /// <summary>
+        /// This event should fire when a delete key is pressed.
+        /// </summary>
+        public event EventHandler OnDeleteKeyPressed;
 
+        /// <summary>
+        /// This event should fire when a char has been pressed.
+        /// </summary>
+        public event EventHandler<CharEventArgs> OnCharPressed;
+
+        /// <summary>
+        /// This event should fire when a enter key is pressed.
+        /// </summary>
+        public event EventHandler OnEnterPressed;
+
+        /// <summary>
+        /// This method gets gets the input.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="ConsoleKeyEventArgs"/>. </param>
         public void GetInput(object sender, ConsoleKeyEventArgs e)
         {
             switch (e.Key)
@@ -54,25 +79,34 @@ namespace SnakeClientConsole
                 case ConsoleKey.OemPeriod:
                     this.FireOnCharPressed(new CharEventArgs('.'));
                     break;
-                //default:
-                //    this.FireOnStringInput(new StringEventArgs(e.ConsoleChar.ToString()));
-                //    break;
+                default:
+                    break;
             }
         }
 
+        /// <summary>
+        /// This method fire the <see cref="OnDeleteKeyPressed"/> event.
+        /// </summary>
         protected virtual void FireOnDeleteKeyPressed()
         {
-            OnDeleteKeyPressed?.Invoke(this, EventArgs.Empty);
+            this.OnDeleteKeyPressed?.Invoke(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// This method fires the <see cref="OnCharPressed"/> event.
+        /// </summary>
+        /// <param name="e"> The <see cref="CharEventArgs"/>. </param>
         protected virtual void FireOnCharPressed(CharEventArgs e)
         {
-            OnCharPressed?.Invoke(this, e);
+            this.OnCharPressed?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// This method fire the <see cref="OnEnterPressed"/> event.
+        /// </summary>
         protected virtual void FireOnEnterPressed()
         {
-            OnEnterPressed?.Invoke(this, EventArgs.Empty);
+            this.OnEnterPressed?.Invoke(this, EventArgs.Empty);
         }
     }
 }
