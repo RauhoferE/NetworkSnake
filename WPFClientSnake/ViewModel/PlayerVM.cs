@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="PlayerVM.cs" company="FH Wiener Neustadt">
+//     Copyright (c) Emre Rauhofer. All rights reserved.
+// </copyright>
+// <author>Emre Rauhofer</author>
+// <summary>
+// This is a network library.
+// </summary>
+//-----------------------------------------------------------------------
 namespace WPFClientSnake
 {
+    using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Net;
@@ -15,23 +20,59 @@ namespace WPFClientSnake
     using System.Windows.Threading;
     using NetworkLibrary;
 
+    /// <summary>
+    /// The <see cref="PlayerVM"/> class.
+    /// </summary>
     public class PlayerVM : INotifyPropertyChanged
     {
-        private PlayerClient player;
-        private IPEndPoint ipadress;
-        private ObservableCollection<ObservableCollection<GameObject>> textBoxChars;
-        private string status;
-        private Brush color;
-        private int snakeLength;
-        private int points;
-
         /// <summary>
         /// The current dispatcher.
         /// </summary>
         private readonly Dispatcher current;
 
+        /// <summary>
+        /// The client.
+        /// </summary>
+        private PlayerClient player;
+
+        /// <summary>
+        /// The IP endpoint.
+        /// </summary>
+        private IPEndPoint ipadress;
+
+        /// <summary>
+        /// The <see cref="GameObject"/> list.
+        /// </summary>
+        private ObservableCollection<ObservableCollection<GameObject>> textBoxChars;
+
+        /// <summary>
+        /// The status.
+        /// </summary>
+        private string status;
+
+        /// <summary>
+        /// The color of the status.
+        /// </summary>
+        private Brush color;
+
+        /// <summary>
+        /// The snake length.
+        /// </summary>
+        private int snakeLength;
+
+        /// <summary>
+        /// The snake points.
+        /// </summary>
+        private int points;
+
+        /// <summary>
+        /// Is true if the client is connected.
+        /// </summary>
         private bool isConnected;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerVM"/> class.
+        /// </summary>
         public PlayerVM()
         {
             this.current = App.Current.Dispatcher;
@@ -39,12 +80,24 @@ namespace WPFClientSnake
             this.MessageColor = Brushes.White;
             this.textBoxChars = new ObservableCollection<ObservableCollection<GameObject>>();
             this.IsConnected = false;
-
         }
 
+        /// <summary>
+        /// This event fires when a property changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Gets the list of the list with the <see cref="GameObject"/>.
+        /// </summary>
+        /// <value> A list of a list. </value>
         public ObservableCollection<ObservableCollection<GameObject>> TextBoxList
         {
-            get { return this.textBoxChars; }
+            get
+            {
+                return this.textBoxChars; 
+            }
+
             private set
             {
                 this.textBoxChars = value; 
@@ -52,6 +105,10 @@ namespace WPFClientSnake
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text of the textbox.
+        /// </summary>
+        /// <value> A normal string. </value>
         public string IPAdress
         {
             get
@@ -63,6 +120,7 @@ namespace WPFClientSnake
 
                 return this.ipadress.Address.ToString();
             }
+
             set
             {
                 if (!IPHelper.IsIPAdress(value))
@@ -70,17 +128,22 @@ namespace WPFClientSnake
                     throw new ArgumentException("Error please put in an IPAdress.");
                 }
 
-                    this.ipadress = IPHelper.GetIPAdress(value);
-                    this.FirePropertyChanged();
-                }
+                this.ipadress = IPHelper.GetIPAdress(value);
+                this.FirePropertyChanged();
+            }
         }
 
+        /// <summary>
+        /// Gets the status of the game.
+        /// </summary>
+        /// <value> A normal string. </value>
         public string Status
         {
             get
             {
                 return this.status;
             }
+
             private set
             {
                 this.status = value;
@@ -88,12 +151,17 @@ namespace WPFClientSnake
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether the client is connected or not.
+        /// </summary>
+        /// <value> Is true if the client is connected. </value>
         public bool IsConnected
         {
             get
             {
                 return this.isConnected;
             }
+
             private set
             {
                 this.isConnected = value;
@@ -101,12 +169,17 @@ namespace WPFClientSnake
             }
         }
 
+        /// <summary>
+        /// Gets the color of the message.
+        /// </summary>
+        /// <value> A normal <see cref="Brush"/>. </value>
         public Brush MessageColor
         {
             get
             {
                 return this.color;
             }
+
             private set
             {
                 this.color = value;
@@ -114,9 +187,17 @@ namespace WPFClientSnake
             }
         }
 
+        /// <summary>
+        /// Gets the snake length.
+        /// </summary>
+        /// <value> A normal integer. </value>
         public int SnakeLength
         {
-            get { return this.snakeLength; }
+            get
+            {
+                return this.snakeLength; 
+            }
+
             private set
             {
                 this.snakeLength = value;
@@ -124,9 +205,17 @@ namespace WPFClientSnake
             }
         }
 
+        /// <summary>
+        /// Gets the game points.
+        /// </summary>
+        /// <value> A normal integer. </value>
         public int Points
         {
-            get { return this.points; }
+            get
+            {
+                return this.points; 
+            }
+
             private set
             {
                 this.points = value;
@@ -134,6 +223,10 @@ namespace WPFClientSnake
             }
         }
 
+        /// <summary>
+        /// Gets a command that fires when the disconnect button is pressed.
+        /// </summary>
+        /// <value> A normal <see cref="ICommand"/>. </value>
         public ICommand Disconnect
         {
             get
@@ -163,6 +256,10 @@ namespace WPFClientSnake
             }
         }
 
+        /// <summary>
+        /// Gets a command that fires when the connect button is pressed.
+        /// </summary>
+        /// <value> A normal <see cref="ICommand"/>. </value>
         public ICommand ConnectToServer
         {
             get
@@ -202,24 +299,11 @@ namespace WPFClientSnake
             }
         }
 
-        private void GetDisconnectFromClient(object sender, EventArgs e)
-        {
-            try
-            {
-                
-                this.player.Stop();
-                this.player = null;
-                this.Status = string.Empty;
-                this.IsConnected = false;
-                this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
-                MessageBox.Show("Disconnected");
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-        }
-
+        /// <summary>
+        /// This method prints the error message.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="MessageContainerEventArgs"/>. </param>
         public void GetErrorMessage(object sender, MessageContainerEventArgs e)
         {
             this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
@@ -227,6 +311,11 @@ namespace WPFClientSnake
             this.MessageColor = Brushes.Red;
         }
 
+        /// <summary>
+        /// This method prints the message.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="MessageContainerEventArgs"/>. </param>
         public void GetMessage(object sender, MessageContainerEventArgs e)
         {
             this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
@@ -234,6 +323,11 @@ namespace WPFClientSnake
             this.MessageColor = Brushes.Green;
         }
 
+        /// <summary>
+        /// This method gets the field from the server.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="FieldMessageEventArgs"/>. </param>
         public void GetField(object sender, FieldMessageEventArgs e)
         {
             this.Status = string.Empty;
@@ -265,6 +359,11 @@ namespace WPFClientSnake
             this.current.Invoke(new Action(() => { this.TextBoxList = finalList; }));
         }
 
+        /// <summary>
+        /// This method gets the objects from the server.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="ObjectPrintEventArgs"/>. </param>
         public void GetObjects(object sender, ObjectPrintEventArgs e)
         {
             this.Points = e.ObjectPrintContainer.Information.Points;
@@ -283,6 +382,11 @@ namespace WPFClientSnake
             }
         }
 
+        /// <summary>
+        /// This method sends the input to the server.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="ClientSnakeMovementEventArgs"/>. </param>
         public void SendInputToClient(object sender, ClientSnakeMovementEventArgs e)
         {
             if (this.player == null)
@@ -300,13 +404,35 @@ namespace WPFClientSnake
             }
         }
 
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// This method fires the <see cref="PropertyChanged"/> event.
+        /// </summary>
+        /// <param name="propertyName"> The property name. </param>
         protected virtual void FirePropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// This method catches the disconnect.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="EventArgs"/>. </param>
+        private void GetDisconnectFromClient(object sender, EventArgs e)
+        {
+            try
+            {
+                this.player.Stop();
+                this.player = null;
+                this.Status = string.Empty;
+                this.IsConnected = false;
+                this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
+                MessageBox.Show("Disconnected");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }
