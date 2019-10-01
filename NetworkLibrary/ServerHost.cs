@@ -143,7 +143,6 @@ namespace NetworkLibrary
                     if (item.Strikes >= 2)
                     {
                         areClosedConnectionsInList = true;
-                        this.currentID--;
 
                         try
                         {
@@ -198,7 +197,6 @@ namespace NetworkLibrary
                     if (client.Strikes >= 2)
                     {
                         areClosedConnectionsInList = true;
-                        this.currentID--;
 
                         try
                         {

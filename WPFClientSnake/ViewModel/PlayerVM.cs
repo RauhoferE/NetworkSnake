@@ -244,6 +244,8 @@ namespace WPFClientSnake
                         this.player.Stop();
                         this.player = null;
                         this.Status = string.Empty;
+                        this.SnakeLength = 0;
+                        this.Points = 0;
                         this.IsConnected = false;
                         this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
                         MessageBox.Show("Successfully Disconnected.");
@@ -425,6 +427,8 @@ namespace WPFClientSnake
                 this.player.Stop();
                 this.player = null;
                 this.Status = string.Empty;
+                this.SnakeLength = 0;
+                this.Points = 0;
                 this.IsConnected = false;
                 this.current.Invoke(new Action(() => { this.TextBoxList.Clear(); }));
                 MessageBox.Show("Disconnected");
