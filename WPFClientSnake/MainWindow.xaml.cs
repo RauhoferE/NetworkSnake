@@ -10,7 +10,6 @@
 namespace WPFClientSnake
 {
     using System;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Input;
 
@@ -24,23 +23,34 @@ namespace WPFClientSnake
         /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             MainVM main = new MainVM();
             this.OnKeyPressed += main.RedirectInput;
             this.DataContext = main;
         }
 
+        /// <summary>
+        /// The event should fire when a key was pressed.
+        /// </summary>
         public event EventHandler<KeyEventArgs> OnKeyPressed;
 
+        /// <summary>
+        /// This method fires the <see cref="OnKeyPressed"/> event.
+        /// </summary>
+        /// <param name="e"> The <see cref="KeyEventArgs"/>. </param>
         protected virtual void FireOnKeyPressed(KeyEventArgs e)
         {
-            OnKeyPressed?.Invoke(this, e);
+            this.OnKeyPressed?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// This method is called when the stack panel receives an key input.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="KeyEventArgs"/>. </param>
         private void UIElement_OnKeyUp(object sender, KeyEventArgs e)
         {
-            //TODO: Durch keyboardwatcehr ersetzten
-            Task.Factory.StartNew(() => this.FireOnKeyPressed(e));
+            this.FireOnKeyPressed(e);
         }
     }
 }
