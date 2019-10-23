@@ -274,7 +274,7 @@ namespace WPFClientSnake
                         return;
                     }
 
-                    if (this.player != null)
+                    if (this.player != null && this.player.IsAlive)
                     {
                         MessageBox.Show("Error already connected.");
                         return;
@@ -368,6 +368,11 @@ namespace WPFClientSnake
         /// <param name="e"> The <see cref="ObjectPrintEventArgs"/>. </param>
         public void GetObjects(object sender, ObjectPrintEventArgs e)
         {
+            if (e.ObjectPrintContainer.Information == null && e.ObjectPrintContainer.NewItems == null && e.ObjectPrintContainer.OldItems == null)
+            {
+                return;
+            }
+
             this.Points = e.ObjectPrintContainer.Information.Points;
             this.SnakeLength = e.ObjectPrintContainer.Information.SnakeLength;
 

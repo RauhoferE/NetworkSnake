@@ -61,7 +61,7 @@ namespace Snake_V_0_3
             this.IsRunning = false;
             this.speed = 1000;
             this.CurrentDirection = new DirectionRight();
-            this.timer = new System.Timers.Timer(10000);
+            this.timer = new System.Timers.Timer(60000);
             this.timer.Elapsed += this.MakeSnakeFaster;
             this.recentlyMoved = false;
         }

@@ -261,7 +261,7 @@ namespace NetworkLibrary
         {
             if (this.tcpClient == null || this.tcpClient.GetStream() == null)
             {
-                throw new ArgumentNullException("Error client is null.");
+                this.FireErrorMessageReceived(new MessageContainerEventArgs(new MessageContainer("Error client is null.")));
             }
 
             this.stream = this.tcpClient.GetStream();
@@ -270,7 +270,7 @@ namespace NetworkLibrary
             {
                 if (this.tcpClient == null)
                 {
-                    throw new ArgumentNullException("Error client is null.");
+                    this.FireErrorMessageReceived(new MessageContainerEventArgs(new MessageContainer("Error client is null.")));
                 }
 
                 if (this.tcpClient.Available == 0)
@@ -288,7 +288,7 @@ namespace NetworkLibrary
                     }
                     catch (Exception ex)
                     {
-                        throw new ArgumentException("Error Message couldnt be received." + ex);
+                         this.FireErrorMessageReceived(new MessageContainerEventArgs(new MessageContainer("Error Message couldnt be received. Please try to reconnect with the server.")));
                     }
                 }
             }

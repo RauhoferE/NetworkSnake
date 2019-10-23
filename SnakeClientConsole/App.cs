@@ -114,6 +114,7 @@ namespace SnakeClientConsole
             var adress = IPHelper.GetIPAdress(e.MessageContainer.Message);
             this.player = new PlayerClient(adress);
             this.player.OnErrorMessageReceived += this.renderer.PrintErrorMessage;
+            this.player.OnErrorMessageReceived += this.FatalErrorExit;
             this.player.OnFieldMessageReceived += this.renderer.PrintField;
             this.player.OnNormalTextReceived += this.renderer.PrintMessage;
             this.player.OnObjectListReceived += this.renderer.PrintGameObjectsAndInfo;
@@ -142,6 +143,16 @@ namespace SnakeClientConsole
         private void ExitAppOnError(object sender, MessageContainerEventArgs e)
         {
             this.renderer.PrintErrorMessage(this, new MessageContainerEventArgs(new MessageContainer("Error Ip Adress couldnt be parsed or is wrong.")));
+            Environment.Exit(1);
+        }
+
+        /// <summary>
+        /// This method exits the client on error.
+        /// </summary>
+        /// <param name="sender"> The object sender. </param>
+        /// <param name="e"> The <see cref="MessageContainerEventArgs"/>. </param>
+        private void FatalErrorExit(object sender, MessageContainerEventArgs e)
+        {
             Environment.Exit(1);
         }
 
