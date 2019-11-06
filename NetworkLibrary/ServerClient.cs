@@ -308,7 +308,8 @@ namespace NetworkLibrary
                     }
                     catch (Exception ex)
                     {
-                        throw new ArgumentException("Error Message couldnt be received." + ex);
+                        this.IsAlive = false;
+                        this.IsConnectionClosed = true;
                     }
                 }
             }

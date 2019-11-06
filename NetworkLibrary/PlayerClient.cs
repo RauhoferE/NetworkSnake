@@ -288,7 +288,8 @@ namespace NetworkLibrary
                     }
                     catch (Exception ex)
                     {
-                         this.FireErrorMessageReceived(new MessageContainerEventArgs(new MessageContainer("Error Message couldnt be received. Please try to reconnect with the server.")));
+                        this.IsAlive = false;
+                        this.FireErrorMessageReceived(new MessageContainerEventArgs(new MessageContainer("Error Message couldnt be received. Please try to reconnect with the server.")));
                     }
                 }
             }
